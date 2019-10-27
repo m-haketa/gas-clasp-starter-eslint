@@ -19,7 +19,8 @@
     "lint": "eslint --ext .ts .",
     "lint:fix": "eslint --ext .ts --fix .",
     "build": "tsc",
-    "clasp": "clasp"
+    "clasp": "clasp",
+    "clasp:loginlocal" : "clasp login --creds creds.json"
   },
   "keywords": [],
   "author": "",
