@@ -5,24 +5,43 @@
   "devDependencies": {
     "@google/clasp": "^2.2.0",
     "@types/google-apps-script": "0.0.62",
+    "@types/jest": "^24.0.21",
     "@typescript-eslint/eslint-plugin": "^2.5.0",
     "@typescript-eslint/parser": "2.4",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-googleappsscript": "^1.0.3",
     "eslint-plugin-prettier": "^3.1.1",
+    "jest": "^24.9.0",
     "prettier": "^1.18.2",
+    "ts-jest": "^24.1.0",
     "typescript": "^3.6.4"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "lint": "eslint --ext .ts .",
     "lint:fix": "eslint --ext .ts --fix .",
     "build": "tsc",
     "clasp": "clasp",
-    "clasp:loginlocal" : "clasp login --creds creds.json"
+    "clasp:loginlocal": "clasp login --creds creds.json"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+    "jest": {
+    "moduleFileExtensions": [
+      "ts","tsx","js","jsx","json"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testRegex": [
+      "test/.+\\.(test|spec)\\.(jsx?|tsx?)$"
+    ]
+  }
 }
