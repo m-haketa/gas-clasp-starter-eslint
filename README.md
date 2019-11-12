@@ -23,7 +23,7 @@ srcフォルダ内にプログラムを作成後、「npm run clasp push」で�
 ## claspコマンドを実行するときには「npm run」から始める
 
 **claspはローカルインストールされています**。
-claspコマンドを実行するときには「npm run clasp ...」というように、 **先頭に「npm run」を付けて」**実行してください。
+claspコマンドを実行するときには「npm run clasp ...」というように、**先頭に「npm run」を付けて**実行してください。
 
 たとえば、loginしたいときには「npm run clasp login」と実行してください。
 
