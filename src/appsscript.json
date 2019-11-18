@@ -9,6 +9,10 @@
       "userSymbol": "BetterLog",
       "libraryId": "1DSyxam1ceq72bMHsE6aOVeOl94X78WCwiYPytKi7chlg4x5GqiNXSw0l",
       "version": "27"
+    }, {
+      "userSymbol": "FreeeApiGasHelper",
+      "libraryId": "1Nbsmhyvhy0us-RE4M6DqJAGZjVr-eHkyL3x6tuvrzm5zA-Sz4IPSQrLU",
+      "version": "1"
     }]
   },
   "exceptionLogging": "STACKDRIVER",
