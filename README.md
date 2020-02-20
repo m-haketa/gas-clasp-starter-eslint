@@ -9,7 +9,8 @@
 ### ローカルPC
 3. 「git clone　（このリポジトリ）」などで、必要なファイルをダウンロード（※要 git）
 4. ルートフォルダに移動して「npm install」を実行。必要なnpmパッケージをインストール（※要node.js）
-5. 「2.」のスクリプトIDを「.clasp.json」のscriptId欄に入力
+5. 「.clasp.sample.json」を「.clasp.json」にリネーム
+6. 「2.」のスクリプトIDを「.clasp.json」のscriptId欄に入力
 
 ## 使用方法
 ### 概要
