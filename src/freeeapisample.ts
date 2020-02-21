@@ -1,17 +1,21 @@
-//ログを取る必要がない場合には、引数なしで呼び出してください
-//例： const freeeapi = new FreeeApiGasHelper.FreeeApi();
-const freeeapi = new FreeeApiGasHelper.FreeeApi(BetterLog.useSpreadsheet());
-
 //clientID、clientSecretで書き換えてください
 const clientId = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
 const clientSecret = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
 
+//ログを取る必要がない場合には、最後の引数を消してください
+//例： const freeeapi = new FreeeApiGasHelper.FreeeApi(clientId, clientSecret);
+const freeeapi = new FreeeApiGasHelper.FreeeApi(
+  clientId,
+  clientSecret,
+  BetterLog.useSpreadsheet()
+);
+
 const authCallback = function(request: any): GoogleAppsScript.HTML.HtmlOutput {
-  return freeeapi.authCallback(request, clientId, clientSecret);
+  return freeeapi.authCallback(request);
 };
 
 function login(): void {
-  freeeapi.login(clientId, clientSecret);
+  freeeapi.login();
 }
 
 function logout(): void {
