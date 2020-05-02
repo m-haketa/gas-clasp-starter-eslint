@@ -1,8 +1,8 @@
-function sum(a: number, b: number): number {
+export function sum(a: number, b: number): number {
   return a + b;
 }
 
-const modifyExistingTypeTest = (): void => {
+export const modifyExistingTypeTest = (): void => {
   const s = SpreadsheetApp.getActiveSheet();
 
   //引数なしでfillが使えるように型定義を変更
@@ -25,7 +25,7 @@ const modifyExistingTypeTest = (): void => {
   console.log(values[0][1]);
 };
 
-const BetterLogTest = (): void => {
+export const BetterLogTest = (): void => {
   const Logger = BetterLog.useSpreadsheet();
 
   Logger.log('BetterLogでログ出力');
