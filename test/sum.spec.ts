@@ -1,4 +1,4 @@
-import { sum } from '../src/sum';
+import { sum } from '../src/sample';
 
 jest.unmock('../src/sum');
 
