@@ -14,7 +14,7 @@ const modifyExistingTypeTest = (): void => {
 
   s.getRange(20, 10, 2, 3).setValues([
     ['a', 1, 1],
-    ['b', 2, 2]
+    ['b', 2, 2],
   ]);
 
   //getValues、getValueに、列ごとに型を指定できるように型定義を変更

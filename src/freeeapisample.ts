@@ -10,7 +10,7 @@ const freeeapi = new FreeeApiGasHelper.FreeeApi(
   BetterLog.useSpreadsheet()
 );
 
-const authCallback = function(request: any): GoogleAppsScript.HTML.HtmlOutput {
+const authCallback = function (request: any): GoogleAppsScript.HTML.HtmlOutput {
   return freeeapi.authCallback(request);
 };
 
@@ -25,9 +25,9 @@ function logout(): void {
 function getCompanies(): void {
   const companiesRoot = freeeapi.request('get', '/companies');
 
-  const data = (companiesRoot.companies as any[]).map(row => [
+  const data = (companiesRoot.companies as any[]).map((row) => [
     row.id,
-    row.display_name
+    row.display_name,
   ]);
   data.unshift(['id', '会社名']);
 
@@ -40,7 +40,7 @@ function getWallet(): void {
   const walletRoot = freeeapi.request('get', '/walletables/{type}/{id}', {
     id: '123456', // ※要書き換え
     type: 'credit_card',
-    company_id: 1234567 // ※要書き換え
+    company_id: 1234567, // ※要書き換え
   });
 
   if (walletRoot.errors) {
@@ -52,7 +52,7 @@ function getWallet(): void {
   const wallet = walletRoot.walletable;
   const data = [
     ['id', '口座名', 'bankid'],
-    [wallet.id, wallet.name, wallet.bank_id]
+    [wallet.id, wallet.name, wallet.bank_id],
   ];
 
   const ss = SpreadsheetApp.getActiveSpreadsheet().insertSheet();
@@ -63,7 +63,7 @@ function getWallet(): void {
 function postPartner(): void {
   const partnerRoot = freeeapi.request('post', '/partners', {
     company_id: 1234567, //※要書き換え
-    name: 'テスト取引先'
+    name: 'テスト取引先',
   });
 
   const Logger = BetterLog.useSpreadsheet();
