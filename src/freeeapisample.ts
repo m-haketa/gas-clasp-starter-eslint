@@ -10,21 +10,24 @@ const freeeapi = new FreeeApiGasHelper.FreeeApi(
   BetterLog.useSpreadsheet()
 );
 
-const authCallback = function (request: any): GoogleAppsScript.HTML.HtmlOutput {
+export const authCallback = function (
+  request: unknown
+): GoogleAppsScript.HTML.HtmlOutput {
   return freeeapi.authCallback(request);
 };
 
-function login(): void {
+export function login(): void {
   freeeapi.login();
 }
 
-function logout(): void {
+export function logout(): void {
   freeeapi.logout();
 }
 
-function getCompanies(): void {
+export function getCompanies(): void {
   const companiesRoot = freeeapi.request('get', '/companies');
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const data = (companiesRoot.companies as any[]).map((row) => [
     row.id,
     row.display_name,
@@ -36,7 +39,7 @@ function getCompanies(): void {
 }
 
 // company_id、idを書き換えて実行してください
-function getWallet(): void {
+export function getWallet(): void {
   const walletRoot = freeeapi.request('get', '/walletables/{type}/{id}', {
     id: '123456', // ※要書き換え
     type: 'credit_card',
@@ -60,7 +63,7 @@ function getWallet(): void {
 }
 
 // company_idを書き換えて実行してください
-function postPartner(): void {
+export function postPartner(): void {
   const partnerRoot = freeeapi.request('post', '/partners', {
     company_id: 1234567, //※要書き換え
     name: 'テスト取引先',
