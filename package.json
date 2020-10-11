@@ -34,7 +34,7 @@
     "test": "jest",
     "lint": "eslint --ext .ts .",
     "lint:fix": "eslint --ext .ts --fix .",
-    "build": "webpack --config ./config/webpack.config.dev.ts --mode development",
+    "build": "webpack --config ./config/webpack.config.ts --mode production",
     "push": "npm run build && npm run clasp push",
     "clasp": "clasp",
     "clasp:loginlocal": "clasp login --creds creds.json"
