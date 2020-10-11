@@ -3,26 +3,39 @@
   "version": "1.0.0",
   "description": "",
   "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
     "@google/clasp": "git+https://github.com/google/clasp.git#0cf48ef",
     "@types/google-apps-script": "1.0.16",
     "@types/jest": "^26.0.14",
+    "@types/webpack": "^4.41.22",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.2.1",
     "eslint": "^7.11.0",
-    "eslint-plugin-import": "^2.22.1",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-googleappsscript": "^1.0.3",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.1.4",
+    "gas-webpack-plugin": "^1.2.0",
     "jest": "^26.5.2",
     "prettier": "^2.1.2",
     "ts-jest": "^26.4.1",
-    "typescript": "^4.0.3"
+    "tsconfig-paths-webpack-plugin": "^3.3.0",
+    "typescript": "^4.0.3",
+    "webpack": "4.44.2",
+    "webpack-cli": "^4.0.0",
+    "webpack-merge": "4.2.2",
+    "write-file-webpack-plugin": "^4.5.1"
   },
   "scripts": {
     "test": "jest",
     "lint": "eslint --ext .ts .",
     "lint:fix": "eslint --ext .ts --fix .",
-    "build": "tsc",
+    "build": "webpack --config ./config/webpack.config.dev.ts --mode development",
+    "push": "npm run build && npm run clasp push",
     "clasp": "clasp",
     "clasp:loginlocal": "clasp login --creds creds.json"
   },
@@ -48,5 +61,8 @@
     "testRegex": [
       "test/.+\\.(test|spec)\\.(jsx?|tsx?)$"
     ]
+  },
+  "dependencies": {
+    "dayjs": "^1.9.1"
   }
 }
