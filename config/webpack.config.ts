@@ -31,17 +31,14 @@ const config: webpack.Configuration = {
   },
   plugins: [
     new GasWebpackPlugin(),
-    new CopyFilePlugin(
-      {
-        patterns: [
-          {
-            from: './src/appsscript.json',
-            to: path.resolve('dist'),
-          },
-        ],
-      },
-      { copyUnmodified: true }
-    ),
+    new CopyFilePlugin({
+      patterns: [
+        {
+          from: './src/appsscript.json',
+          to: path.resolve('dist'),
+        },
+      ],
+    }),
     new WriteFilePlugin(),
   ],
 };
