@@ -25,28 +25,39 @@ export function logout(): void {
 }
 
 export function getCompanies(): void {
-  const companiesRoot = freeeapi.request('get', '/companies');
+  const companiesRoot = freeeapi.request<
+    | {
+        companies: { id: string; display_name: string }[];
+      }
+    | { errors: unknown }
+  >('get', '/companies');
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const data = (companiesRoot.companies as any[]).map((row) => [
-    row.id,
-    row.display_name,
-  ]);
-  data.unshift(['id', '会社名']);
+  if ('companies' in companiesRoot) {
+    const data = companiesRoot.companies.map((row) => [
+      row.id,
+      row.display_name,
+    ]);
+    data.unshift(['id', '会社名']);
 
-  const ss = SpreadsheetApp.getActiveSpreadsheet().insertSheet();
-  ss.getRange(1, 1, data.length, data[0].length).setValues(data);
+    const ss = SpreadsheetApp.getActiveSpreadsheet().insertSheet();
+    ss.getRange(1, 1, data.length, data[0].length).setValues(data);
+  }
 }
 
 // company_id、idを書き換えて実行してください
 export function getWallet(): void {
-  const walletRoot = freeeapi.request('get', '/walletables/{type}/{id}', {
+  const walletRoot = freeeapi.request<
+    | {
+        walletable: { id: string; name: string; bank_id: string };
+      }
+    | { errors: unknown }
+  >('get', '/walletables/{type}/{id}', {
     id: '123456', // ※要書き換え
     type: 'credit_card',
     company_id: 1234567, // ※要書き換え
   });
 
-  if (walletRoot.errors) {
+  if ('errors' in walletRoot) {
     const Logger = BetterLog.useSpreadsheet();
     Logger.log('口座が存在しません' + JSON.stringify(walletRoot));
     throw 'エラーが発生しました';

@@ -28,11 +28,11 @@ declare namespace FreeeApiGasHelper {
       logger?: ApiConst.LoggerInterface | undefined
     );
 
-    request(
+    request<T>(
       method: ApiConst.HttpMethod,
       urlPathFromBase: string,
       params?: { [key: string]: any }
-    ): any;
+    ): T;
 
     public login(): void;
     public logout(): void;
