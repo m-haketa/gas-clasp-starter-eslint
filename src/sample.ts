@@ -8,7 +8,7 @@ const modifyExistingTypeTest = (): void => {
   //引数なしでfillが使えるように型定義を変更
   const data = Array(10)
     .fill()
-    .map(() => Array(5).fill(0));
+    .map(() => Array<number>(5).fill(0));
 
   s.getRange(2, 2, data.length, data[0].length).setValues(data);
 
