@@ -9,8 +9,11 @@ declare namespace GoogleAppsScript {
       getValue<T>(): T;
 
       // 返り値に型（配列、または、タプル型）を付けられるように修正
-      getValues<Cell>(): Cell[];
-      getValues<T>(): T[];
+      getValues<T extends unknown[]>(): T[];
+      getValues<Cell>(): Cell[][];
+      getValues<T>(): T[][];
+
+      setValues(values: (readonly unknown[])[]): this;
     }
   }
 }
