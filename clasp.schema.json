@@ -1,0 +1,36 @@
+{
+  "title": "JSON schema for Google Apps Script project files",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "scriptId": {
+      "description": "The ID of the Apps Script project",
+      "type": "string",
+      "minLength": 57,
+      "maxLength": 57
+    },
+    "rootDir": {
+      "description": "The relative path to the custom root directory to your Apps Script files.",
+      "default": ".",
+      "type": "string"
+    },
+    "projectId": {
+      "description": "The ID for the Google Cloud Platform project linked to this script",
+      "default": "project-id-xxxxxxxxxxxxxxxxxxx",
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 30
+    },
+    "fileExtension": {
+      "description": "Specifies the file extension for local script files in your Apps Script project.",
+      "default": "ts",
+      "type": "string"
+    },
+    "filePushOrder": {
+      "description": "Specifies the files that should be pushed first, useful for scripts that rely on order of execution. All other files are pushed after this list of files.",
+      "default": [""],
+      "type": "array"
+    }
+  },
+  "required": ["scriptId"]
+}
