@@ -4,7 +4,7 @@
     "libraries": [{
       "userSymbol": "OAuth2",
       "libraryId": "1B7FSrk5Zi6L1rSxxTDgDEUsPzlukDsi4KGuTMorsTQHhGBzBkMun4iDF",
-      "version": "33"
+      "version": "41"
     }, {
       "userSymbol": "BetterLog",
       "libraryId": "1DSyxam1ceq72bMHsE6aOVeOl94X78WCwiYPytKi7chlg4x5GqiNXSw0l",
@@ -12,19 +12,12 @@
     }, {
       "userSymbol": "FreeeApiGasHelper",
       "libraryId": "1Nbsmhyvhy0us-RE4M6DqJAGZjVr-eHkyL3x6tuvrzm5zA-Sz4IPSQrLU",
-      "version": "5"
+      "version": "6"
     }]
   },
   "exceptionLogging": "STACKDRIVER",
   "executionApi": {
     "access": "ANYONE"
   },
-  "runtimeVersion": "V8",
-  "oauthScopes": [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/script.external_request",
-    "https://www.googleapis.com/auth/script.container.ui",
-    "https://www.googleapis.com/auth/script.webapp.deploy",
-    "https://www.googleapis.com/auth/userinfo.email"
-  ]
+  "runtimeVersion": "V8"
 }
