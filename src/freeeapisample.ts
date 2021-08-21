@@ -30,7 +30,7 @@ export function getCompanies(): void {
         companies: { id: string; display_name: string }[];
       }
     | { errors: unknown }
-  >('get', '/companies');
+  >('get', '/api/1/companies');
 
   if ('companies' in companiesRoot) {
     const data = companiesRoot.companies.map((row) => [
@@ -51,7 +51,7 @@ export function getWallet(): void {
         walletable: { id: string; name: string; bank_id: string };
       }
     | { errors: unknown }
-  >('get', '/walletables/{type}/{id}', {
+  >('get', '/api/1/walletables/{type}/{id}', {
     id: '123456', // ※要書き換え
     type: 'credit_card',
     company_id: 1234567, // ※要書き換え
@@ -75,7 +75,7 @@ export function getWallet(): void {
 
 // company_idを書き換えて実行してください
 export function postPartner(): void {
-  const partnerRoot = freeeapi.request('post', '/partners', {
+  const partnerRoot = freeeapi.request('post', '/api/1/partners', {
     company_id: 1234567, //※要書き換え
     name: 'テスト取引先',
   });
