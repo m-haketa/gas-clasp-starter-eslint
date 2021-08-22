@@ -12,7 +12,7 @@
     }, {
       "userSymbol": "FreeeApiGasHelper",
       "libraryId": "1Nbsmhyvhy0us-RE4M6DqJAGZjVr-eHkyL3x6tuvrzm5zA-Sz4IPSQrLU",
-      "version": "6"
+      "version": "7"
     }]
   },
   "exceptionLogging": "STACKDRIVER",
